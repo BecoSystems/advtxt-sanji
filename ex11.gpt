@@ -1,0 +1,103 @@
+* algoritmo */
+
+algoritmo aventura_do_sanji;
+
+/* ---------------------------------------------------------------------- */
+/* variáveis */
+
+variáveis
+    escolha : inteiro;
+    respostasCorretas : inteiro;
+fim-variáveis
+
+/* ---------------------------------------------------------------------- */
+/* rotina principal */
+
+início
+    respostasCorretas := 0;
+
+    imprima("\n========================================\n");
+    imprima("    AVENTURA DO SANJI - ONE PIECE\n");
+    imprima("========================================\n\n");
+
+    imprima("Sanji, o cozinheiro dos Piratas do Chapéu de Palha,\n");
+    imprima("está em uma nova ilha em busca de ingredientes raros!\n\n");
+
+    // 1° ESCOLHA - OBJETOS
+    imprima("Sanji encontra dois ingredientes promissores:\n");
+    imprima("1 - Cogumelos bioluminescentes\n");
+    imprima("2 - Frutas do tamanho de melões com casca espinhosa\n");
+    imprima("Escolha (1 ou 2): ");
+    escolha := leia();
+
+    se escolha = 1 então
+        imprima("\nOs cogumelos são raros e perfeitos para molhos!\n");
+
+        // 2° ESCOLHA - AÇÃO
+        imprima("Ao coletá-los, Sanji ouve um barulho:\n");
+        imprima("1 - Investigar a origem do som\n");
+        imprima("2 - Continuar coletando rapidamente\n");
+        imprima("Escolha (1 ou 2): ");
+        escolha := leia();
+
+        se escolha = 1 então
+            imprima("\nEra um cozinheiro ferido que compartilha uma receita secreta!\n");
+            respostasCorretas := respostasCorretas + 1;
+        senão
+            imprima("\nEra uma armadilha da Marinha! Sanji é capturado.\n");
+            imprima("Fim da aventura. Luffy terá que resgatá-lo!\n");
+            retorne 0;
+        fim-se
+    senão
+        imprima("\nAs frutas são explosivas! Sanji quase se machuca.\n");
+        imprima("Fim da aventura. Zoro ri da sua desventura.\n");
+        retorne 0;
+    fim-se
+
+    // 3° ESCOLHA - OBJETOS
+    imprima("\nNo caminho de volta, Sanji vê dois utensílios:\n");
+    imprima("1 - Uma frigideira de aço lendário\n");
+    imprima("2 - Um chapéu de chef antigo\n");
+    imprima("Escolha (1 ou 2): ");
+    escolha := leia();
+
+    se escolha = 1 então
+        imprima("\nA frigideira pertenceu ao Chef Zeff! Item valioso!\n");
+
+        // 4° ESCOLHA - AÇÃO
+        imprima("Após esse achado, Sanji deve:\n");
+        imprima("1 - Testar imediatamente a frigideira\n");
+        imprima("2 - Levar para o navio com cuidado\n");
+        imprima("Escolha (1 ou 2): ");
+        escolha := leia();
+
+        se escolha = 2 então
+            imprima("\nSanji preserva o artefato corretamente!\n");
+            respostasCorretas := respostasCorretas + 1;
+        senão
+            imprima("\nA frigideira quebra ao ser usada sem preparo!\n");
+            imprima("Fim da aventura. Zeff ficaria decepcionado.\n");
+            retorne 0;
+        fim-se
+    senão
+        imprima("\nO chapéu estava infestado de aranhas venenosas!\n");
+        imprima("Fim da aventura. Sanji passa mal e perde os ingredientes.\n");
+        retorne 0;
+    fim-se
+
+    // FINAL BASEADO NAS ESCOLHAS
+    se respostasCorretas >= 2 então
+        imprima("\n========================================\n");
+        imprima("   ★ MISSÃO CULINÁRIA BEM-SUCEDIDA! ★\n");
+        imprima("========================================\n\n");
+        imprima("Sanji retorna ao Thousand Sunny com:\n");
+        imprima("- Cogumelos bioluminescentes raros\n");
+        imprima("- Receita secreta do cozinheiro\n");
+        imprima("- Frigideira lendária do Chef Zeff\n\n");
+        imprima("Luffy: \"SANJI! FAZ UM BANQUETE!\"\n");
+        imprima("Zoro: \"Até que enfim ele serve pra algo...\"\n");
+        imprima("Nami: \"Vendemos algum desses itens?\" *sorrindo*\n");
+    fim-se
+
+fim
+
