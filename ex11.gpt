@@ -21,7 +21,7 @@ início
     escreva("Escolha (1 ou 2): ");
     leia(escolha);
 
-    se escolha = 1 entao
+    se escolha = 1 então
         escreval("Os cogumelos sao raros e perfeitos para molhos!");
 
         escreval("Ao coleta-los, Sanji ouve um barulho:");
