@@ -1,0 +1,89 @@
+algoritmo "aventurasanji"
+
+variáveis
+    escolha : inteiro;
+    respostasCorretas : inteiro;
+fim-variáveis
+
+início
+    respostasCorretas := 0;
+
+    escreval("========================================");
+    escreval("    AVENTURA DO SANJI - ONE PIECE");
+    escreval("========================================");
+
+    escreval("Sanji, o cozinheiro dos Piratas do Chapeu de Palha,");
+    escreval("esta em uma nova ilha em busca de ingredientes raros!");
+
+    escreval("Sanji encontra dois ingredientes promissores:");
+    escreval("1 - Cogumelos bioluminescentes");
+    escreval("2 - Frutas do tamanho de meloes com casca espinhosa");
+    escreva("Escolha (1 ou 2): ");
+    leia(escolha);
+
+    se escolha = 1 entao
+        escreval("Os cogumelos sao raros e perfeitos para molhos!");
+
+        escreval("Ao coleta-los, Sanji ouve um barulho:");
+        escreval("1 - Investigar a origem do som");
+        escreval("2 - Continuar coletando rapidamente");
+        escreva("Escolha (1 ou 2): ");
+        leia(escolha);
+
+        se escolha = 1 entao
+            escreval("Era um cozinheiro ferido que compartilha uma receita secreta!");
+            respostasCorretas := respostasCorretas + 1
+        senao
+            escreval("Era uma armadilha da Marinha! Sanji e capturado.");
+            escreval("Fim da aventura. Luffy tera que resgata-lo!");
+            pare
+        fimse
+    senao
+        escreval("As frutas sao explosivas! Sanji quase se machuca.");
+        escreval("Fim da aventura. Zoro ri da sua desventura.");
+        pare
+    fimse
+
+    escreval("No caminho de volta, Sanji ve dois utensilios:");
+    escreval("1 - Uma frigideira de aco lendario");
+    escreval("2 - Um chapeu de chef antigo");
+    escreva("Escolha (1 ou 2): ");
+    leia(escolha);
+
+    se escolha = 1 entao
+        escreval("A frigideira pertenceu ao Chef Zeff! Item valioso!");
+
+        escreval("Apos esse achado, Sanji deve:");
+        escreval("1 - Testar imediatamente a frigideira");
+        escreval("2 - Levar para o navio com cuidado");
+        escreva("Escolha (1 ou 2): ");
+        leia(escolha);
+
+        se escolha = 2 entao
+            escreval("Sanji preserva o artefato corretamente!");
+            respostasCorretas := respostasCorretas + 1
+        senao
+            escreval("A frigideira quebra ao ser usada sem preparo!");
+            escreval("Fim da aventura. Zeff ficaria decepcionado.");
+            pare
+        fimse
+    senao
+        escreval("O chapeu estava infestado de aranhas venenosas!");
+        escreval("Fim da aventura. Sanji passa mal e perde os ingredientes.");
+        pare
+    fimse
+
+    se respostasCorretas >= 2 entao
+        escreval("========================================");
+        escreval("   MISSAO CULINARIA BEM-SUCEDIDA!");
+        escreval("========================================");
+        escreval("Sanji retorna ao Thousand Sunny com:");
+        escreval("- Cogumelos bioluminescentes raros");
+        escreval("- Receita secreta do cozinheiro");
+        escreval("- Frigideira lendaria do Chef Zeff");
+        escreval("Luffy: SANJI! FAZ UM BANQUETE!");
+        escreval("Zoro: Ate que enfim ele serve pra algo...");
+        escreval("Nami: Vendemos algum desses itens?");
+    fimse
+
+    fimalgoritmo
