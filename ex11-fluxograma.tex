@@ -1,0 +1,160 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Criação de Fluxograma usando LaTeX
+%
+% Assunto: Fluxograma de um código de aventura interativa do Sanji - One Piece
+%
+% Autores:
+%     Arthur Rodrigues Rocha Lopes
+%     Dante De Sá Leitão Melo De Oliveira
+%     Lucas Pereira Silveira De Azevedo
+%
+% Coordenação:
+%     Prof. Dr. Ruben Carlo Benante
+%
+% Data: 27 de abril de 2025
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Para gerar o PDF use o comando make com o makefile configurado:
+%
+%    $ make aventura-sanji.pdf
+%
+% O conteúdo do makefile é composto dos 3 seguintes comandos que ficam assim automatizados:
+%    $ pdflatex aventura-sanji.tex -o aventura-sanji.pdf
+%    $ bibtex biblio
+%    $ pdflatex aventura-sanji.tex -o aventura-sanji.pdf
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% preambulo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,12pt]{article} %twocolumn
+\usepackage[left=2.5cm,right=2cm,top=2.5cm,bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc} % letras acentuadas
+\usepackage[portuguese]{babel} % tradução de títulos
+\usepackage[colorlinks]{hyperref}
+\usepackage{tikz} % para adicionar fluxogramas
+\usepackage{algorithm} % ambiente para índice de algoritmos
+\usepackage{algpseudocode} % fonte e estilo do algoritmo
+\usepackage{graphicx} % permite adicionar imagens
+\usepackage{indentfirst} % indenta o primeiro parágrafo também
+\usepackage{url} % permite adicionar links de URLs e emails
+
+\DeclareUrlCommand\email{\urlstyle{mm}} % comando para email bonito
+\floatname{algorithm}{Algoritmo} % tradução da palavra algoritimo no ambiente de índice
+
+\usetikzlibrary{shapes.geometric, shapes.symbols,arrows} % ajuste do tikz para incluir formas e setas
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% capa %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Fluxograma de Aventura Interativa do Sanji - One Piece}
+\author{
+    Arthur Rodrigues Rocha Lopes \\
+    Dante De Sá Leitão Melo De Oliveira \\
+    Lucas Pereira Silveira De Azevedo
+}
+\date{27 de abril de 2025}
+
+\begin{document}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% resumo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstract}
+\textbf{Assunto:} Fluxograma do código da aventura interativa de Sanji.
+
+Este projeto descreve o fluxograma de um código interativo baseado no personagem Sanji, do anime *One Piece*, que tem que tomar decisões em uma aventura culinária. O código permite ao jogador fazer escolhas em diversos momentos, e o fluxograma reflete as possíveis alternativas e resultados. O objetivo deste trabalho é apresentar o fluxo de controle das decisões do programa, que se desdobram em diferentes resultados e ações com base nas escolhas do jogador.
+
+\textbf{Local:} Escola Politécnica de Pernambuco - UPE/POLI
+
+\textbf{Órgão Financiador:} N/A
+
+\textbf{Caracterização:} Modelagem, Projeto e Implementação de Software em Linguagem \texttt{C}
+\end{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% artigo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introdução}
+
+Neste projeto, iremos apresentar o fluxograma de um código interativo baseado em um cenário envolvendo o personagem Sanji do anime *One Piece*. O código descreve uma aventura culinária na qual o jogador deve tomar decisões que impactam o desenvolvimento da história.
+
+O fluxograma é a representação visual dessas escolhas e seus resultados, fornecendo uma visão clara do processo lógico do programa. O código será implementado na linguagem \texttt{C}, e o fluxograma ajudará na compreensão de suas estruturas condicionais e de controle.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% seção de fluxograma %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Fluxograma}
+
+% adicionar o fluxograma aqui
+\begin{tikzpicture}
+    % Definindo os nós (blocos)
+    \node (inicio) [startend] {Inicio};
+    \node (txta) [print, below of=inicio] {Aventura começa: Sanji encontra ingredientes};
+    \node (inp1) [input, below of=txta] {Escolha 1: Cogumelos ou Frutas?};
+    \node (tot1) [process, below of=inp1] {Escolha 1: Cogumelos - Verificar o som};
+    \node (maior) [decision, below of=tot1] {Som: investigar ou continuar?};
+    \node (sim) [print, right of=maior, node distance=4cm] {Encontrou receita secreta};
+    \node (nao) [print, below of=maior, node distance=2.4cm] {Armado pela Marinha, capturado};
+    \node (fim1) [startend, below of=nao] {Fim da Aventura};
+
+    % Fluxo para a segunda escolha de objetos
+    \node (txtb) [print, below of=fim1] {Escolha 2: Frigideira ou Chapéu?};
+    \node (inp2) [input, below of=txtb] {Escolha 2: Frigideira ou Chapéu};
+    \node (tot2) [process, below of=inp2] {Escolha 2: Frigideira - Testar ou levar?};
+    \node (maior2) [decision, below of=tot2] {Testar ou levar?};
+    \node (sim2) [print, right of=maior2, node distance=4cm] {A frigideira quebra};
+    \node (nao2) [print, below of=maior2, node distance=2.4cm] {Preservação correta};
+    \node (fim2) [startend, below of=nao2] {Fim da Aventura};
+
+    % Desenhando as setas
+    \path [line] (inicio) -- (txta);
+    \path [line] (txta) -- (inp1);
+    \path [line] (inp1) -- (tot1);
+    \path [line] (tot1) -- (maior);
+    \path [line] (maior) -- (sim);
+    \path [line] (sim) -- (fim1);
+    \path [line] (maior) -- (nao);
+    \path [line] (nao) -- (fim1);
+    \path [line] (fim1) -- (txtb);
+    \path [line] (txtb) -- (inp2);
+    \path [line] (inp2) -- (tot2);
+    \path [line] (tot2) -- (maior2);
+    \path [line] (maior2) -- (sim2);
+    \path [line] (sim2) -- (fim2);
+    \path [line] (maior2) -- (nao2);
+    \path [line] (nao2) -- (fim2);
+\end{tikzpicture}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% seção de justificativa %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Detalhamento dos Autores}
+
+\subsection*{Discentes}
+
+\begin{enumerate}
+    \item \textbf{Arthur Rodrigues Rocha Lopes}
+    \begin{description}
+        \item [Email:] \email{arrl@poli.br}
+        \item [GitHub:] \url{https://github.com/arte011}
+    \end{description}
+
+    \item \textbf{Dante De Sá Leitão Melo De Oliveira}
+    \begin{description}
+        \item [Email:] \email{dslmo@poli.br}
+        \item [GitHub:] \url{https://github.com/itsdanteoliveira}
+    \end{description}
+
+    \item \textbf{Lucas Pereira Silveira De Azevedo}
+    \begin{description}
+        \item [Email:] \email{lpsa@poli.br}
+        \item [GitHub:] \url{https://github.com/LucasPSA3322}
+    \end{description}
+\end{enumerate}
+
+\end{document}
+
